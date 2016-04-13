@@ -2,3 +2,6 @@
 	path = Uploader
 	url = https://github.com/igorpi25/Uploader.git
 	branch = library
+[submodule "Communicator"]
+	path = Communicator
+	url = https://github.com/igorpi25/Communicator
