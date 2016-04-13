@@ -5,3 +5,6 @@
 [submodule "Communicator"]
 	path = Communicator
 	url = https://github.com/igorpi25/Communicator
+[submodule "MultipleTypesAdapter"]
+	path = MultipleTypesAdapter
+	url = https://github.com/Igorpi25/MultipleTypesAdapter.git
