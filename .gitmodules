@@ -1,0 +1,4 @@
+[submodule "Uploader"]
+	path = Uploader
+	url = https://github.com/igorpi25/Uploader.git
+	branch = library
