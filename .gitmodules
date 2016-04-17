@@ -8,3 +8,4 @@
 [submodule "MultipleTypesAdapter"]
 	path = MultipleTypesAdapter
 	url = https://github.com/Igorpi25/MultipleTypesAdapter.git
+	branch = library
