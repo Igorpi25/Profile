@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/group_context_menu_view"
+        android:title="@string/group_context_menu_view"/>
+    
+    <item android:id="@+id/group_context_menu_view_me"
+        android:title="@string/group_context_menu_view_me"/>
+    
+	<item android:id="@+id/group_context_menu_make_admin"
+        android:title="@string/group_context_menu_make_admin_1"/>
+	
+    <item android:id="@+id/group_context_menu_remove"
+        android:title="@string/group_context_menu_remove_1"/>
+    
+    <item android:id="@+id/group_context_menu_leave"
+        android:title="@string/group_context_menu_leave"/>
+	
+</menu>

@@ -1,0 +1,101 @@
+<resources>
+
+    <string name="app_name">Ivanov\'s Tech Profile</string>
+    <string name="logo">com.ivanov.tech.profile</string>
+    <string name="subs">(demo activity)</string>
+    
+	<string name="splashscreen_head">Demo</string>
+	<string name="splashscreen_sub">[Ivanov Tech]</string>
+    
+	<string name="fragment_details_tittle">Details</string>
+    <string name="fragment_details_user_name">Name:</string>
+    <string name="fragment_details_user_status">Status:</string>
+    <string name="fragment_details_button_close_text">Close</string>
+    
+    <string name="fragment_me_upload_text">Upload profile photo</string>
+    
+    <string name="fragment_contacts_groups_key">Groups</string>
+    <string name="fragment_contacts_users_key">Users</string>
+    
+    <string name="fragment_contacts_groups_header_key">Groups</string>
+    <string name="fragment_contacts_users_header_key">Contacts</string>
+    <string name="fragment_contacts_me_header_key">My profile</string>
+    
+    <string name="search_tittle">Add contact</string>
+    <string name="search_edittext_hint">[email]</string>
+    <string name="search_button_text">Search: </string>
+    
+    <string name="add_tittle">Add contact</string>    
+    <string name="add_button_add">Add</string>
+    
+    <string name="menu_add_contact">Add contact</string>
+    <string name="menu_search_contact_text">Search</string>
+    
+    <string name="contact_item_button_accept_text">Accept</string>
+    
+    <string name="contact_item_group_label">members</string>
+    
+    <string-array name="user_status_array">        
+        <item >User is not added to contacts</item>
+        <item >You sent request to user</item>
+        <item >User sent request to you</item>
+        <item >User is added to contacts</item>
+        <item >You blocked this user</item>
+        <item >This user blocked you</item>               
+    </string-array>
+    
+    <string-array name="friend_operation_array">        
+        <item >Add contacts</item>
+        <item >Cancel request</item>
+        <item >Confirm</item>
+        <item >Decline</item>
+        <item >Block</item>
+        <item >Cancel block</item>
+        <item >Delete contact</item>                 
+    </string-array>    
+    
+    <string name="fragment_details_group_name_key">Name of group:</string>
+    <string name="fragment_details_group_status_key">Your status in group:</string>
+    <string name="fragment_details_group_button_leave_text">Delete and Leave</string>
+    <string name="fragment_details_group_header_admin_key">Admin functions</string>
+    <string name="fragment_details_group_header_gridview_key">Group users</string>
+    <string name="fragment_details_group_upload_profile_photo">Group profile photo</string>
+    
+    <string name="fragment_details_group_gridview_label_admin">Admin</string>
+    <string name="fragment_details_group_gridview_label_creater">Super-Admin</string>
+    
+    <string name="group_context_menu_view">View</string>
+    <string name="group_context_menu_view_me">View Me</string>
+    <string name="group_context_menu_make_admin_1">Make </string>
+    <string name="group_context_menu_make_admin_2"> group admin</string>
+    <string name="group_context_menu_remove_1">Remove </string>
+    <string name="group_context_menu_remove_2"> from group</string>
+    <string name="group_context_menu_leave">Leave group</string>
+    
+    <string-array name="status_in_group_array">        
+        <item >Common user</item>
+        <item >Super-admin (creater)</item>
+        <item >Admin</item>
+        <item >Banned</item>
+        <item >Missing status</item>        
+        <item >Leave the group</item>  
+        <item >Removed from group</item>
+        <item >Not in group</item>
+    </string-array>
+    
+    <string name="fragment_tester_button_update_text">Update</string>
+    <string name="fragment_details_imageview_photo_contentdescription">User\\\'s photo</string>
+    <string name="listview_item_imageview_icon_contentdescription">User\\\'s icon</string>
+    <string name="details_item_avatar_label">Upload photo</string>
+    <string name="fragment_text_button_save_text">Save</string>
+            
+    <string name="menu_add">Add</string>
+	<string name="menu_add_group">Add group</string>
+	
+    <string name="menu_ok">OK</string>
+    
+    <string name="selectusers_textview_empty">[Please, select users]</string>
+    <string name="selectusers_textview_listview_is_empty">(Here is no suitable user)</string>
+    
+    
+</resources>

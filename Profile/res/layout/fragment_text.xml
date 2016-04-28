@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_mat"
+    android:clickable="true"
+    android:orientation="vertical" >
+    
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="@dimen/window_pading" 
+	    android:background="@color/color_white"
+	    android:clickable="true">
+	    
+	    <TextView
+	        android:id="@+id/fragment_text_textview_key"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="sans-serif-light"
+	        android:text="Key:"
+	        android:textColor="@color/color_gray"
+	        android:textStyle="bold" />
+	
+	    <EditText
+	        android:id="@+id/fragment_text_edittext_value"
+	        style="@style/style_edittext_dialog"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:fontFamily="sans-serif-light" >
+	
+	        <requestFocus />
+	    </EditText>
+	
+	    <Button
+	        android:id="@+id/fragment_text_button_save"
+	        style="@style/style_button_dialog"
+	        android:layout_width="@dimen/widget_width_small"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="right"
+	        android:layout_marginTop="@dimen/window_pading"
+	        android:background="@drawable/drawable_button_dialog_positive"
+	        android:fontFamily="sans-serif-light"
+	        android:text="@string/fragment_text_button_save_text"
+	        android:textColor="@color/color_text_white" />
+	    
+	</LinearLayout>
+</LinearLayout>

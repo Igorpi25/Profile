@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <dimen name="addusers_horizontal_pading">10dp</dimen>
+    <dimen name="addusers_horizontal_divider">10dp</dimen>
+    <dimen name="addusers_horizontal_height">60dp</dimen>
+    <dimen name="addusers_horizontal_imageview_size">40dp</dimen>
+</resources>

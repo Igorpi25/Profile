@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/color_mat">
+    
+    <ListView
+        android:id="@+id/selectusers_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/color_mat"
+        android:clipToPadding="false"
+        android:divider="@color/color_gray_light"
+        android:dividerHeight="0.7dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/addusers_horizontal_height" />
+
+    <com.meetme.android.horizontallistview.HorizontalListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:widget="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/selectusers_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/addusers_horizontal_height"
+        android:background="#AAFFFFFF"
+        android:padding="@dimen/addusers_horizontal_pading"
+        app:dividerWidth="@dimen/addusers_horizontal_divider" >
+    </com.meetme.android.horizontallistview.HorizontalListView>
+
+    <TextView
+        android:id="@+id/selectusers_textview_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/addusers_horizontal_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/selectusers_textview_empty"
+        android:textColor="@color/color_text_gray"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/selectusers_textview_listview_is_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectusers_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/selectusers_textview_listview_is_empty"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="visible" />
+
+</RelativeLayout>
