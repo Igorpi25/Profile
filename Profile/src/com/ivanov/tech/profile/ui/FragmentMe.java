@@ -3,6 +3,7 @@ package com.ivanov.tech.profile.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +16,7 @@ import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderText;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorMultipleTypesAdapter;
 import com.ivanov.tech.profile.Profile;
 import com.ivanov.tech.profile.R;
+import com.ivanov.tech.profile.Profile.CreateGroupResultListener;
 import com.ivanov.tech.profile.provider.DBContentProvider;
 import com.ivanov.tech.profile.provider.DBContract;
 import com.ivanov.tech.session.Session;
@@ -52,8 +54,6 @@ public class FragmentMe extends SherlockDialogFragment implements LoaderManager.
     protected static final int TEXT_KEY_UPLOAD_AVATAR =1;
     protected static final int TEXT_KEY_NAME =2;    
     protected static final int IMAGEVIEW_KEY_AVATAR =3;
-    
-    
     
     protected ListView listview;    
     protected CursorMultipleTypesAdapter adapter=null;
@@ -180,7 +180,60 @@ public class FragmentMe extends SherlockDialogFragment implements LoaderManager.
 		Log.d(TAG, msg);
 		Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
 	}
+	
+    protected void addContact(){
+    	Profile.showSearchContact(getActivity(),getActivity().getSupportFragmentManager(),R.id.main_container);
+    }
+    
+    protected void addGroup(){
+    	/*
+    	 * First here we get users-list, then we send it the server to create the group of these users.
+    	 * When server response us groupid, we take it and showGroup. At this point, 
+    	 * server will have to send to us the group-info and group-users through the Communicator.
+    	 * So when we get gropid by from response we already have the group-info and group-users list, and users-info in group
+    	*/
+    	
+    	Profile.showSelectFriends(getString(R.string.selectusers_textview_empty), new FragmentSelectUsers.ResultListener(){
 
+			@Override
+			public void onSuccess(ArrayList<Integer> usersid) {
+				//Add selected users to group. For that we create message to server
+				
+				Log.e(TAG, "showSelectFriends onSuccess usersid.size = "+usersid.size());
+				
+				JSONArray users=new JSONArray();
+				try {					
+					
+					//List of users that have to be added to group
+					for(Integer userid : usersid){
+						users.put(new JSONObject().put("id", userid));
+					}				
+					
+				} catch (JSONException e) {
+					Log.e(TAG, "showSelectFriends onSuccess JSONException e = "+e);
+				}
+				
+				//Call TransportProfile of Communicator protocol
+				Profile.createGroupRequest(users, getActivity(),new CreateGroupResultListener(){
+
+					@Override
+					public void onCreated(int groupid) {
+						Profile.showGroup(groupid, getActivity(), getFragmentManager(), R.id.main_container);
+					}
+
+					@Override
+					public void onFailed(String message) {
+						toast("Create group failed");
+						Log.e(TAG, "addGroup createGroupRequest onFailed message="+message);						
+					}
+					
+				});
+			}
+			
+		}, getActivity(), getFragmentManager(), R.id.main_container);
+    	    	
+    }
+    	
 	//--------------Adapter Callbacks----------------------
     
   	@Override
