@@ -292,7 +292,7 @@ public class FragmentMe extends SherlockDialogFragment implements LoaderManager.
 	  									
 	  							@Override
 	  							public String getUrl() {
-	  								return Profile.URL_AVATAR_UPLOAD;
+	  								return Profile.getUrlAvatarUpload();
 	  							}	    		
 	  							
 	  						},	

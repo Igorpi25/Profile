@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -90,17 +91,52 @@ public class Profile {
 	public static final int GROUPSTATUS_LEAVE=5;
 	public static final int GROUPSTATUS_REMOVED=6;
 	public static final int GROUPSTATUS_NOT_IN_GROUP=7;
-			
-	private static final String URL_SERVER = "http://space14.ru/igorserver/v1/";
-	
-	private static final String URL_SEARCH_CONTACT = URL_SERVER+"search_contact";
-	public static final String URL_AVATAR_UPLOAD=URL_SERVER+"avatars/upload";
-	public static final String URL_GROUP_PANORAMA_UPLOAD=URL_SERVER+"group_panorama/upload";
-	private static final String URL_CREATE_GROUP = URL_SERVER+"create_group";	
 	
 	public static final int[]  AVATAR_UPLOAD_SIZE= {600,600};
     public static final String AVATAR_UPLOAD_FILE_PART_NAME = "image";
+    
+    //----------------Preferences-----------------------------
+    
+    static private SharedPreferences preferences=null;
+    
+	private static final String PREF = "Profile";
+    
+    public static final String PREF_URL_SEARCH_CONTACT="PREF_URL_SEARCH_CONTACT";
+    public static final String PREF_URL_AVATAR_UPLOAD="PREF_URL_AVATAR_UPLOAD";
+    public static final String PREF_URL_GROUP_PANORAMA_UPLOAD="PREF_URL_GROUP_PANORAMA_UPLOAD";
+    public static final String PREF_URL_CREATE_GROUP="PREF_URL_CREATE_GROUP";
 		
+    public static String getUrlSearchContact(){
+    	return preferences.getString(PREF_URL_SEARCH_CONTACT, null);    	
+    }
+    
+    public static String getUrlAvatarUpload(){
+    	return preferences.getString(PREF_URL_AVATAR_UPLOAD, null);    	
+    }
+    
+    public static String getUrlGroupPanoramaUpload(){
+    	return preferences.getString(PREF_URL_GROUP_PANORAMA_UPLOAD, null);    	
+    }
+    
+    public static String getUrlCreateGroup(){
+    	return preferences.getString(PREF_URL_CREATE_GROUP, null);    	
+    }
+    
+    public static void Initialize(Context context, String url_searchcontact, String url_avatarupload, String url_grouppanoramaupload, String url_creategroup){
+    	if(preferences==null){
+    		preferences=context.getApplicationContext().getSharedPreferences(PREF, 0);
+    	}
+    	
+    	preferences.edit().
+	    putString(PREF_URL_SEARCH_CONTACT, url_searchcontact).
+	    putString(PREF_URL_AVATAR_UPLOAD, url_avatarupload).
+    	putString(PREF_URL_GROUP_PANORAMA_UPLOAD, url_grouppanoramaupload).
+    	putString(PREF_URL_CREATE_GROUP, url_creategroup).commit();
+	    
+    }
+    	
+    //-----------------UI Fragments----------------------
+    
 	public static void showSearchContact(final Context context, final FragmentManager fragmentManager, final int container){
 
 		if( (fragmentManager.findFragmentByTag("SearchContact")!=null) && (fragmentManager.findFragmentByTag("SearchContact").isVisible()) )return;
@@ -248,7 +284,7 @@ public class Profile {
       	pDialog.show();
       	
       	final StringRequest request = new StringRequest(Method.POST,
-      			URL_SEARCH_CONTACT,
+      			getUrlSearchContact(),
       	                new Response.Listener<String>() {
       	 
       	                    @Override
@@ -397,7 +433,7 @@ public class Profile {
      	pDialog.show();
      	
      	StringRequest request = new StringRequest(Method.POST,
-     			URL_CREATE_GROUP,
+     			getUrlCreateGroup(),
      	                new Response.Listener<String>() {
      	 
      	                    @Override

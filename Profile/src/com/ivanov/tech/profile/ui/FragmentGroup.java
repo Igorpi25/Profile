@@ -512,7 +512,7 @@ public class FragmentGroup extends SherlockDialogFragment implements LoaderManag
 	  									
 	  							@Override
 	  							public String getUrl() {
-	  								return Profile.URL_GROUP_PANORAMA_UPLOAD+"/"+group_server_id;
+	  								return Profile.getUrlGroupPanoramaUpload()+"/"+group_server_id;
 	  							}	    		
 	  							
 	  						},	
