@@ -27,6 +27,11 @@ public class CommunicatorService extends com.ivanov.tech.communicator.service.Co
 	public String getServerUrl() {
 		return URL_SERVER;
 	}
+
+	@Override
+	public String getCommunicatorServiceClass() {		
+		return CommunicatorService.class.getCanonicalName();
+	}
 	
 	
 

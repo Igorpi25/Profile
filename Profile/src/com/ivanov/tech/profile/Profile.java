@@ -39,6 +39,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.ivanov.tech.communicator.Communicator;
 import com.ivanov.tech.connection.Connection;
 import com.ivanov.tech.profile.provider.DBContentProvider;
 import com.ivanov.tech.profile.provider.DBContract;
@@ -508,21 +509,32 @@ public class Profile {
 		
 		Log.d(TAG, "sendCommunicatorMessage json="+json.toString());
 		
-	    Intent intent=new Intent(context,CommunicatorService.class);
-	    intent.putExtra("userid", Session.getUserId());
-	    intent.putExtra("transport", Profile.TRANSPORT_PROFILE);
-	    intent.putExtra("json", json.toString());
-		
-	    context.startService(intent);
+	    Intent intent;
+		try {
+			intent = new Intent(context,Class.forName(Communicator.getCommunicatorServiceClass()));
+			intent.putExtra("userid", Session.getUserId());
+		    intent.putExtra("transport", Profile.TRANSPORT_PROFILE);
+		    intent.putExtra("json", json.toString());
+			
+		    context.startService(intent);
+		} catch (ClassNotFoundException e) {
+			Log.e(TAG, "sendCommunicatorMessage ClassNotFoundException e="+e);
+		}
+	   
 	}
    
    public static void startCommunicatorService(Context context){
 	   Log.d(TAG,"startCommunicatorService userid="+Session.getUserId());
 	   
-     	Intent intent=new Intent(context,CommunicatorService.class);
-     	intent.putExtra("userid", Session.getUserId());
+	   Intent intent;
+	   try {
+			intent = new Intent(context,Class.forName(Communicator.getCommunicatorServiceClass()));
+			intent.putExtra("userid", Session.getUserId());
      	
-     	context.startService(intent);
+			context.startService(intent);
+		} catch (ClassNotFoundException e) {
+			Log.e(TAG, "startCommunicatorService ClassNotFoundException e="+e);
+		}
    }
       
    //--------------Listeners-------------------------
