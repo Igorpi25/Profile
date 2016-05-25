@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.ivanov.tech.communicator.Communicator;
 import com.ivanov.tech.connection.Connection;
 import com.ivanov.tech.profile.Profile;
 import com.ivanov.tech.profile.R;
+import com.ivanov.tech.profile.service.CommunicatorService;
 import com.ivanov.tech.profile.ui.FragmentSplashScreen;
 import com.ivanov.tech.session.Session;
 
@@ -53,6 +55,7 @@ public class DemoActivity extends SherlockFragmentActivity {
         
         Session.Initialize(getApplicationContext(),url_testapikey,url_login,url_register);
         Profile.Initialize(getApplicationContext(),url_searchcontact,url_avatarupload,url_grouppanoramaupload,url_creategroup);
+        Communicator.Initialize(getApplicationContext(), CommunicatorService.URL_SERVER, CommunicatorService.class.getCanonicalName());
         
         setContentView(R.layout.activity_main);
         
