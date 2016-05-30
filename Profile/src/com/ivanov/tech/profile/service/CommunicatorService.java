@@ -11,6 +11,7 @@ public class CommunicatorService extends com.ivanov.tech.communicator.service.Co
     public final static String URL_DOMEN="igorpi25.ru";  
     public final static String URL_PORT=":8001";//Websocket server port
     public final static String URL_SERVER=URL_PROTOCOL+URL_DOMEN+URL_PORT;
+    public final static String URL_START_SERVER="http://"+URL_DOMEN+"/communicator/start";
     
 	@Override
 	public ArrayList<TransportBase> createTransports() {
@@ -29,10 +30,13 @@ public class CommunicatorService extends com.ivanov.tech.communicator.service.Co
 	}
 
 	@Override
+	public String getRestartServerUrl() {		
+		return URL_START_SERVER;
+	}
+	
+	@Override
 	public String getCommunicatorServiceClass() {		
 		return CommunicatorService.class.getCanonicalName();
 	}
 	
-	
-
 }

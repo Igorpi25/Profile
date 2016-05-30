@@ -55,7 +55,7 @@ public class DemoActivity extends SherlockFragmentActivity {
         
         Session.Initialize(getApplicationContext(),url_testapikey,url_login,url_register);
         Profile.Initialize(getApplicationContext(),url_searchcontact,url_avatarupload,url_grouppanoramaupload,url_creategroup);
-        Communicator.Initialize(getApplicationContext(), CommunicatorService.URL_SERVER, CommunicatorService.class.getCanonicalName());
+        Communicator.Initialize(getApplicationContext(), CommunicatorService.URL_SERVER,CommunicatorService.URL_START_SERVER, CommunicatorService.class.getCanonicalName());
         
         setContentView(R.layout.activity_main);
         
