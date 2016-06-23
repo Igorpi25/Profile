@@ -20,6 +20,12 @@ public class CursorWrapper implements Cursor {
      * Creates a cursor wrapper.
      * @param cursor The underlying cursor to wrap.
      */
+    
+    @Override
+	public void setExtras(Bundle extras) {
+		
+	}
+    
     public CursorWrapper(Cursor cursor) {
         mCursor = cursor;
     }
@@ -164,4 +170,6 @@ public class CursorWrapper implements Cursor {
     public void unregisterDataSetObserver(DataSetObserver observer) {
         mCursor.unregisterDataSetObserver(observer);
     }
+
+	
 }

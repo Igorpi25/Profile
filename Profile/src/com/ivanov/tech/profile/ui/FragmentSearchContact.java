@@ -2,13 +2,18 @@ package com.ivanov.tech.profile.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -19,17 +24,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.ivanov.tech.profile.Profile;
 import com.ivanov.tech.profile.Profile.CloseListener;
 import com.ivanov.tech.profile.Profile.SearchResultListener;
 import com.ivanov.tech.profile.R;
 import com.ivanov.tech.session.Session;
 
-public class FragmentSearchContact extends SherlockDialogFragment implements OnClickListener{
+public class FragmentSearchContact extends DialogFragment implements OnClickListener{
 	
     private static final String TAG="FragmentSearchContact";
     
@@ -61,9 +62,10 @@ public class FragmentSearchContact extends SherlockDialogFragment implements OnC
         menuOK.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menuOK.setEnabled(false);
         
-		getSherlockActivity().getSupportActionBar().setTitle(R.string.search_tittle);
-        getSherlockActivity().getSupportActionBar().setHomeButtonEnabled(true);
-        getSherlockActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.search_tittle);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        
     }
     
     @Override

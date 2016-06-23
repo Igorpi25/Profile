@@ -12,12 +12,17 @@ import android.database.MatrixCursor;
 import android.database.MergeCursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -26,10 +31,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderButton;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderGridView;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderHeader;
@@ -45,7 +46,7 @@ import com.ivanov.tech.profile.provider.DBContentProvider;
 import com.ivanov.tech.profile.provider.DBContract;
 import com.ivanov.tech.session.Session;
 
-public class FragmentContacts extends SherlockDialogFragment implements LoaderManager.LoaderCallbacks<Cursor>,OnItemClickListener,OnClickListener {
+public class FragmentContacts extends DialogFragment implements LoaderManager.LoaderCallbacks<Cursor>,OnItemClickListener,OnClickListener {
 	
 	private static final String TAG = FragmentContacts.class
             .getSimpleName();
@@ -53,7 +54,7 @@ public class FragmentContacts extends SherlockDialogFragment implements LoaderMa
 	protected static final int TYPE_LINK_USER = 0;
     protected static final int TYPE_LINK_GROUP =1;
     protected static final int TYPE_HEADER =2;
-            
+    
     protected ListView listview;    
     protected CursorMultipleTypesAdapter adapter=null;
 
@@ -120,8 +121,10 @@ public class FragmentContacts extends SherlockDialogFragment implements LoaderMa
        
         menuAddGroup=menu.add(Menu.NONE, 3, Menu.NONE,R.string.menu_add_group);
         menuAddGroup.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+       
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.app_name);
         
-        getSherlockActivity().getSupportActionBar().setTitle(R.string.app_name);
+        
     }
     
 	@Override

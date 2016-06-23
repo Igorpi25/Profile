@@ -1,15 +1,16 @@
 package com.ivanov.tech.profile.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.app.AppCompatActivity;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.ivanov.tech.profile.R;
 
-public class FragmentSplashScreen extends SherlockDialogFragment{
+public class FragmentSplashScreen extends DialogFragment{
 	private static final String TAG = FragmentSplashScreen.class
             .getSimpleName();   
 
@@ -33,13 +34,13 @@ public class FragmentSplashScreen extends SherlockDialogFragment{
 	@Override
     public void onStart() {
         super.onStart();  
-        getSherlockActivity().getSupportActionBar().hide();
+		((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
 
     @Override
     public void onStop() {
         super.onStop();   
-        getSherlockActivity().getSupportActionBar().show();
+		//((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 
 }

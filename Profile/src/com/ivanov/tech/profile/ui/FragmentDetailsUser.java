@@ -6,9 +6,6 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderButton;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderImageView;
 import com.ivanov.tech.multipletypesadapter.cursoradapter.CursorItemHolderText;
@@ -23,11 +20,15 @@ import android.database.MatrixCursor;
 import android.database.MergeCursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -36,7 +37,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class FragmentDetailsUser extends SherlockDialogFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener, OnClickListener {
+public class FragmentDetailsUser extends DialogFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener, OnClickListener {
 	
 	private static final String TAG = FragmentDetailsUser.class
             .getSimpleName();    
@@ -101,8 +102,9 @@ public class FragmentDetailsUser extends SherlockDialogFragment implements Loade
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		menu.clear();
 		
-		getSherlockActivity().getSupportActionBar().show();
-		getSherlockActivity().getSupportActionBar().setTitle(" ");
+		((AppCompatActivity)getActivity()).getSupportActionBar().show();
+		((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(" ");
+		
     }
 		
 //------------Preparing cursor----------------------------
@@ -198,7 +200,7 @@ public class FragmentDetailsUser extends SherlockDialogFragment implements Loade
     private void updateMenuTitle(){
     	cursor_user_server_id.moveToFirst();
     	String title=cursor_user_server_id.getString(cursor_user_server_id.getColumnIndex(DBContract.User.COLUMN_NAME_NAME));;
-		getSherlockActivity().getSupportActionBar().setTitle(title);
+    	((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
     }
     
     protected void close(){

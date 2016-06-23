@@ -2,8 +2,12 @@ package com.ivanov.tech.profile.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,14 +19,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.bumptech.glide.Glide;
 import com.ivanov.tech.profile.R;
 import com.ivanov.tech.session.Session;
 
-public class FragmentText extends SherlockDialogFragment implements OnClickListener{
+public class FragmentText extends DialogFragment implements OnClickListener{
 	
     private static final String TAG="FragmentText";
      
@@ -58,7 +59,7 @@ public class FragmentText extends SherlockDialogFragment implements OnClickListe
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		menu.clear();
-		getSherlockActivity().getSupportActionBar().setTitle(key);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(key);
     }
 
     @Override

@@ -12,13 +12,18 @@ import android.graphics.Bitmap.Config;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -34,11 +39,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -55,7 +55,7 @@ import com.meetme.android.horizontallistview.HorizontalListView;
 /**
  * Created by Igor on 09.05.15.
  */
-public class FragmentSelectUsers extends SherlockDialogFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener{
+public class FragmentSelectUsers extends DialogFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener{
 
     private static final String TAG = FragmentSelectUsers.class
             .getSimpleName();    
@@ -169,10 +169,12 @@ public class FragmentSelectUsers extends SherlockDialogFragment implements Loade
     	menuOK=menu.add(R.string.menu_ok);
         menuOK.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         
-        getSherlockActivity().getSupportActionBar().show();
-        getSherlockActivity().getSupportActionBar().setHomeButtonEnabled(true);
-        getSherlockActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSherlockActivity().getSupportActionBar().setTitle(tittle);
+
+		((AppCompatActivity)getActivity()).getSupportActionBar().show();
+		((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(tittle);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+		((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        
     }
     
 	@Override
